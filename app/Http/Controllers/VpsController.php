@@ -6,6 +6,6 @@ class VpsController extends Controller
 {
     public function index()
     {
-        return view('vps.index');
+        return view('vps');
     }
 }

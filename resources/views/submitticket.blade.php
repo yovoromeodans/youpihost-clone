@@ -235,9 +235,12 @@
 
             </div>
 
-            {{-- ── RIGHT COLUMN : Knowledgebase Suggestions ── --}}
-            <aside class="w-full lg:w-80 shrink-0">
-                <h2 class="text-xl font-semibold text-slate-800 mb-4">Knowledgebase Suggestions</h2>
+            {{-- ── RIGHT COLUMN : Support Sidebar + Knowledgebase Suggestions ── --}}
+            <aside class="w-full lg:w-80 shrink-0 space-y-8">
+                <x-ui.support-sidebar active="Open Ticket" />
+
+                <div>
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">Knowledgebase Suggestions</h2>
 
                 <div class="bg-white rounded-lg shadow-md p-6">
                     {{-- Icon --}}
@@ -264,6 +267,7 @@
                         <input type="text" placeholder="Search in knowledgebase..."
                             class="w-full pl-9 pr-3 py-2.5 border border-slate-200 rounded-md text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-0 transition-colors duration-150 bg-slate-50">
                     </div>
+                </div>
                 </div>
             </aside>
 

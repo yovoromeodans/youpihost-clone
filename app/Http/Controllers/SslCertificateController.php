@@ -6,6 +6,6 @@ class SslCertificateController extends Controller
 {
     public function index()
     {
-        return view('ssl-certificate.index');
+        return view('ssl-certificate');
     }
 }

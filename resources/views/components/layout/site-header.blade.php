@@ -12,10 +12,7 @@
         <div class="hidden lg:flex items-center justify-between py-3">
 
             {{-- Logo --}}
-            <a href="/" class="flex items-center shrink-0">
-                <img src="{{ asset('assets/images/logo/logo_big.198293982.png') }}"
-                     alt="YoupiHost" class="h-8 w-auto">
-            </a>
+            <x-logo.logo class="shrink-0" />
 
             {{-- Panier + Devise --}}
             <div class="flex items-center gap-1.5 text-sm text-slate-600">
@@ -27,7 +24,7 @@
                         <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
                     </svg>
-                    Panier
+                    View Cart
                 </a>
 
                 {{-- Séparateur --}}
@@ -85,42 +82,40 @@
                         <line x1="3" y1="18" x2="21" y2="18"/>
                     </svg>
                 </button>
-                <a href="/" class="flex items-center gap-1">
-                    <img src="{{ asset('assets/images/logo/logo_big.198293982.png') }}"
-                         alt="YoupiHost" class="h-7 w-auto">
-                </a>
+                {{-- Logo mobile --}}
+                <x-logo.logo class="gap-1" size="h-7 w-auto" />
             </div>
 
             {{-- ── DESKTOP : Navigation ── --}}
             <nav class="hidden lg:flex items-center gap-0" aria-label="Navigation principale">
 
                 {{-- Hébergements ▼ --}}
-                <x-ui.nav-dropdown label="Hébergements" width="w-72" btn-class="pl-0 pr-3">
-                    <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="Hébergement Web">
+                <x-ui.nav-dropdown label="Hosting" width="w-72" btn-class="pl-0 pr-3">
+                    <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="Shared Hosting">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('vps') }}" label="Serveur privé virtuel">
+                    <x-ui.nav-dropdown-item href="{{ route('vps') }}" label="Virtual Private Server">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="Hébergement pour WordPress">
+                    <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="WordPress Hosting">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
                     <div class="border-t border-slate-100 mt-1 pt-1">
-                        <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="Tous les options d'hébergement">
+                        <x-ui.nav-dropdown-item href="{{ route('hebergement.mutualise') }}" label="All Hosting Options">
                             <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></x-slot>
                         </x-ui.nav-dropdown-item>
                     </div>
                 </x-ui.nav-dropdown>
 
                 {{-- Domaines ▼ --}}
-                <x-ui.nav-dropdown label="Domaines" width="w-72">
-                    <x-ui.nav-dropdown-item href="{{ route('domain.register') }}" label="Enregistrer un nom de domaine">
+                <x-ui.nav-dropdown label="Domains" width="w-72">
+                    <x-ui.nav-dropdown-item href="{{ route('domain.register') }}" label="Register a New Domain">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('domain.transfer') }}" label="Transférer un nom de domaine">
+                    <x-ui.nav-dropdown-item href="{{ route('domain.transfer') }}" label="Transfer a Domain">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('domain.pricing') }}" label="Tarif des noms de domaine" separator-top>
+                    <x-ui.nav-dropdown-item href="{{ route('domain.pricing') }}" label="Domain Pricing" separator-top>
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
                 </x-ui.nav-dropdown>
@@ -136,17 +131,17 @@
                 </a>
 
                 {{-- Assistance ▼ --}}
-                <x-ui.nav-dropdown label="Assistance" width="w-64">
-                    <x-ui.nav-dropdown-item href="{{ route('contact') }}" label="Contactez-nous" separator-bottom>
+                <x-ui.nav-dropdown label="Support" width="w-64">
+                    <x-ui.nav-dropdown-item href="{{ route('contact') }}" label="Contact Us" separator-bottom>
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="#" label="État du réseau">
+                    <x-ui.nav-dropdown-item href="#" label="Network Status">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('knowledgebase') }}" label="Base de connaissances">
+                    <x-ui.nav-dropdown-item href="{{ route('knowledgebase') }}" label="Knowledgebase">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
-                    <x-ui.nav-dropdown-item href="{{ route('announcements') }}" label="Actualités">
+                    <x-ui.nav-dropdown-item href="{{ route('announcements') }}" label="Announcements">
                         <x-slot name="icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></x-slot>
                     </x-ui.nav-dropdown-item>
                 </x-ui.nav-dropdown>
@@ -156,7 +151,7 @@
             {{-- ── MOBILE droite : Panier + XOF ── --}}
             <div class="flex items-center gap-2 lg:hidden text-sm text-slate-600">
                 {{-- Cart --}}
-                <a href="#" class="flex items-center hover:text-primary transition-colors duration-150 cursor-pointer">
+                <a href="{{ route('cart') }}" class="flex items-center hover:text-primary transition-colors duration-150 cursor-pointer">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"
                          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
@@ -189,8 +184,8 @@
 
             {{-- ── DESKTOP droite : Inscription + Connexion ── --}}
             <div class="hidden lg:flex items-center gap-2">
-                <x-ui.button-secondary href="#" text="Inscription" class="py-2.5 px-5" />
-                <x-ui.button-primary   href="#" text="Connexion"   class="py-2.5 px-5" />
+                <x-ui.button-secondary href="#" text="Register" class="py-2.5 px-5" />
+                <x-ui.button-primary   href="#" text="Login"   class="py-2.5 px-5" />
             </div>
 
         </div>{{-- /ligne 2 --}}
@@ -223,24 +218,24 @@
     <nav class="flex-1 px-6 py-4">
         @php
             $mobileNav = [
-                ['label' => 'Hébergements', 'dropdown' => [
-                    ['label' => 'Hébergement Web',                'href' => route('hebergement.mutualise'), 'icon' => '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'],
-                    ['label' => 'Serveur privé virtuel',          'href' => route('vps'), 'icon' => '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>'],
-                    ['label' => 'Hébergement pour WordPress',     'href' => route('hebergement.mutualise'), 'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'],
-                    ['label' => "Tous les options d'hébergement", 'href' => route('hebergement.mutualise'), 'icon' => '<path d="M5 12h14M12 5l7 7-7 7"/>'],
+                ['label' => 'Hosting', 'dropdown' => [
+                    ['label' => 'Shared Hosting',          'href' => route('hebergement.mutualise'), 'icon' => '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>'],
+                    ['label' => 'Virtual Private Server',  'href' => route('vps'), 'icon' => '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>'],
+                    ['label' => 'WordPress Hosting',       'href' => route('hebergement.mutualise'), 'icon' => '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'],
+                    ['label' => 'All Hosting Options',     'href' => route('hebergement.mutualise'), 'icon' => '<path d="M5 12h14M12 5l7 7-7 7"/>'],
                 ]],
-                ['label' => 'Domaines', 'dropdown' => [
-                    ['label' => 'Enregistrer un nom de domaine',  'href' => route('domain.register'), 'icon' => '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'],
-                    ['label' => 'Transférer un nom de domaine',   'href' => route('domain.transfer'), 'icon' => '<line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>'],
-                    ['label' => 'Tarif des noms de domaine',      'href' => route('domain.pricing'), 'icon' => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'],
+                ['label' => 'Domains', 'dropdown' => [
+                    ['label' => 'Register a New Domain', 'href' => route('domain.register'), 'icon' => '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>'],
+                    ['label' => 'Transfer a Domain',     'href' => route('domain.transfer'), 'icon' => '<line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>'],
+                    ['label' => 'Domain Pricing',         'href' => route('domain.pricing'), 'icon' => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'],
                 ]],
                 ['label' => 'Email Pro', 'href' => route('email-pro')],
                 ['label' => 'VPS',       'href' => route('vps')],
-                ['label' => 'Assistance', 'dropdown' => [
-                    ['label' => 'Contactez-nous', 'href' => route('contact'), 'icon' => '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'],
-                    ['label' => 'État du réseau',        'href' => '#', 'icon' => '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'],
-                    ['label' => 'Base de connaissances', 'href' => route('knowledgebase'), 'icon' => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'],
-                    ['label' => 'Actualités',            'href' => route('announcements'), 'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'],
+                ['label' => 'Support', 'dropdown' => [
+                    ['label' => 'Contact Us',          'href' => route('contact'), 'icon' => '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'],
+                    ['label' => 'Network Status',      'href' => '#', 'icon' => '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'],
+                    ['label' => 'Knowledgebase',       'href' => route('knowledgebase'), 'icon' => '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>'],
+                    ['label' => 'Announcements',       'href' => route('announcements'), 'icon' => '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'],
                 ]],
             ];
         @endphp
@@ -284,7 +279,7 @@
 
         {{-- Bouton Inscription --}}
         <div class="pt-5">
-            <x-ui.button-secondary href="#" text="Inscription" class="w-full justify-center py-3 text-base" />
+            <x-ui.button-secondary href="#" text="Register" class="w-full justify-center py-3 text-base" />
         </div>
 
         {{-- Langue --}}
@@ -292,8 +287,8 @@
             <button type="button" onclick="headerToggleMobileLang(event)"
                     class="w-full flex items-center justify-between py-4 text-base text-slate-700 cursor-pointer outline-none border-0 bg-transparent">
                 <span class="flex items-center gap-2">
-                    <span id="mobile-lang-flag" class="text-xl">🇫🇷</span>
-                    <span id="mobile-lang-label">Français</span>
+                    <span id="mobile-lang-flag" class="text-xl">🇬🇧</span>
+                    <span id="mobile-lang-label">English</span>
                 </span>
                 <svg id="mobile-lang-chevron" class="w-4 h-4 text-slate-400 transition-transform duration-200"
                      fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -314,7 +309,7 @@
 
         {{-- Bouton Connexion --}}
         <div class="pt-3 pb-6">
-            <x-ui.button-primary href="#" text="Connexion" class="w-full justify-center py-3 text-base" />
+            <x-ui.button-primary href="#" text="Login" class="w-full justify-center py-3 text-base" />
         </div>
     </nav>
 </div>

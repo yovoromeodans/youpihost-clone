@@ -44,7 +44,7 @@
         <div class="px-4 py-2">
             <p class="text-sm font-semibold text-slate-800 mb-1">Categories</p>
             @foreach ($categories as $cat)
-            <a href="{{ $cat['href'] }}" class="block py-1.5 text-sm {{ $cat['label'] === $active ? 'text-primary font-medium' : 'text-slate-600 hover:text-primary' }} transition-colors duration-150">
+            <a href="{{ $cat['href'] }}" class="block py-1.5 text-sm {{ $cat['label'] === $active ? 'text-primary font-medium translate-x-1.5' : 'text-slate-600 hover:text-primary' }} transition-colors duration-150">
                 {{ $cat['label'] }}
             </a>
             @endforeach
@@ -54,7 +54,7 @@
             @foreach ($actions as $action)
             <a href="{{ $action['href'] }}"
                class="block py-1.5 text-sm transition-colors duration-150
-                      {{ $action['label'] === $active ? 'text-primary font-medium' : 'text-slate-600 hover:text-primary' }}">
+                      {{ $action['label'] === $active ? 'text-primary font-medium translate-x-1.5' : 'text-slate-600 hover:text-primary' }}">
                 {{ $action['label'] }}
             </a>
             @endforeach

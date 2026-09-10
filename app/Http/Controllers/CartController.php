@@ -6,6 +6,6 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('store.cart');
+        return view('cart');
     }
 }

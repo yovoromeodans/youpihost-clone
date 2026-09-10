@@ -14,8 +14,9 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\SubmitticketController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 
-Route::redirect('/', '/store/hebergement-mutualise');
+Route::get('/',                           [HomeController::class,            'index'])->name('home');
 Route::get('/contact',                    [ContactController::class,         'index'])->name('contact');
 Route::get('/knowledgebase',              [KnowledgebaseController::class,   'index'])->name('knowledgebase');
 Route::get('/downloads',                  [DownloadsController::class,       'index'])->name('downloads');
