@@ -1,0 +1,39 @@
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/600.css';
+@import '@fontsource/roboto/700.css';
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+
+    --color-primary: #065cfe;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+}
+
+@layer base {
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .mobile-acc-panel,
+    .mobile-acc-panel * {
+        border-left: none !important;
+        border-right: none !important;
+        outline: none !important;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
